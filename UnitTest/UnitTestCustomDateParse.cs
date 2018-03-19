@@ -16,6 +16,24 @@ namespace UnitTest
             var mydate = str.ToProvinciaDateTime();
             Assert.AreEqual(mydate, expected);
         }
+
+        [TestMethod]
+        public void CheckCustomDateParseCredicoop()
+        {
+            const string str = "29/12/2017";
+            var mydate = str.ToCredicoopDateTime();
+            var expected = new DateTime(2017, 12, 29);
+            Assert.AreEqual(mydate, expected);
+        }
+
+        [TestMethod]
+        public void CheckCustomDecimalParse()
+        {
+            const string str = "3125,18";
+            var myDecimal = str.ToDecimal();
+            var expected = 3125.18m;
+            Assert.AreEqual(myDecimal, expected);
+        }
     }
 
 }
