@@ -11,6 +11,7 @@ namespace IntegrationTest
         private const string Csvpciafile = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Pcia.csv";
         private const string CsvCredicoop =
             @"C:\Users\judit\source\repos\CredicoopParser2\IntegrationTest\assets\Credicoop.csv";
+        private const string CsvFrances = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Frances.csv";
 
         [TestMethod]
         public void CheckHeaderCredicoop()
@@ -47,6 +48,15 @@ namespace IntegrationTest
             var credicoopRecords = transaction.ReadTransactionsCredicoop().ToArray();
             var expectedLengthCsvCredicoop = File.ReadAllLines(CsvCredicoop).Length - 1;
             Assert.AreEqual(credicoopRecords.Length, expectedLengthCsvCredicoop);
+        }
+
+        [TestMethod]
+        public void CheckCsvFrances()
+        {
+            var transaction = new Transaction(CsvFrances);
+            var francesRecords = transaction.ReadTransactionsFrances().ToArray();
+            var expectedLengthCsvFrances = File.ReadAllLines((CsvFrances)).Length - 7;
+            Assert.AreEqual(francesRecords.Length, expectedLengthCsvFrances);
         }
     }
 }

@@ -27,11 +27,29 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void CheckCustomDecimalParse()
+        public void CheckCustomDateParseFrances()
+        {
+            const string str = "29-12-2017";
+            var mydate = str.ToFrancesDateTime();
+            var expected = new DateTime(2017, 12, 29);
+            Assert.AreEqual(mydate, expected);
+        }
+
+        [TestMethod]
+        public void CheckCustomDecimalSeparatorParse()
         {
             const string str = "3125,18";
             var myDecimal = str.ToDecimal();
             var expected = 3125.18m;
+            Assert.AreEqual(myDecimal, expected);
+        }
+
+        [TestMethod]
+        public void CheckCustomEmptyDecimalParse()
+        {
+            const string str = "";
+            var myDecimal = str.ToDecimal();
+            var expected = 0.00m;
             Assert.AreEqual(myDecimal, expected);
         }
     }

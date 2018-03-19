@@ -23,5 +23,12 @@ namespace Eternet.Bancos.Parser.Extensions
             var format = "dd" + separator + "MM" + separator + "yyyy";
             return DateTime.ParseExact(str, format, CultureInfo.CurrentCulture);
         }
+
+        public static DateTime ToFrancesDateTime(this string str)
+        {
+            var separator = BestSeparator(str);
+            var format = "dd" + separator + "MM" + separator + "yyyy";
+            return DateTime.ParseExact(str, format, CultureInfo.CurrentCulture);
+        }
     }
 }
