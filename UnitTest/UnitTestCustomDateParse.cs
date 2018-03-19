@@ -13,7 +13,7 @@ namespace UnitTest
         {
             const string str = "29-dic-2017";
             var expected = new DateTime(2017, 12, 29);
-            var mydate = str.ToProcinciaDateTime();
+            var mydate = str.ToProvinciaDateTime();
             Assert.AreEqual(mydate, expected);
         }
     }

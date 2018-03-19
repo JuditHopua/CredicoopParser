@@ -5,9 +5,9 @@ namespace Eternet.Bancos.Parser
 {
     interface ITransaction
     {
-        //IEnumerable<CredicoopRecord> ReadTransactions(bool hasHeaders = true);
+        IEnumerable<CredicoopRecord> ReadTransactionsCredicoop();
 
-        IEnumerable<ProvinciaRecord> ReadTransactions(bool hasHeaders = true);
+        IEnumerable<ProvinciaRecord> ReadTransactionsProvincia();
 
     }
 }

@@ -16,7 +16,7 @@ namespace Eternet.Bancos.Parser
             _file = file;
         }
 
-        public IEnumerable<ProvinciaRecord> ReadTransactions(bool hasHeaders = true)
+        public IEnumerable<ProvinciaRecord> ReadTransactionsProvincia()
         {
             var delimiter = new ParserDelimiter(File.ReadAllLines(_file).FirstOrDefault());
             var separator = delimiter.GetBestCharDelimiter();
@@ -27,6 +27,20 @@ namespace Eternet.Bancos.Parser
             csv.Configuration.RegisterClassMap<ProvinciaRecordMap>();
             var results = csv.GetRecords<ProvinciaRecord>().ToArray();
             return results;
+        }
+
+        public IEnumerable<CredicoopRecord> ReadTransactionsCredicoop()
+        {
+            var delimiter = new ParserDelimiter(File.ReadAllLines(_file).FirstOrDefault());
+            var separator = delimiter.GetBestCharDelimiter();
+            var csv = new CsvReader(File.OpenText(_file));
+            csv.Configuration.Delimiter = $"{separator}";
+            csv.Configuration.HasHeaderRecord = true;
+            csv.Configuration.HeaderValidated = null;
+            csv.Configuration.RegisterClassMap<CredicoopRecordMap>();
+            var results = csv.GetRecords<CredicoopRecord>().ToArray();
+            return results;
+
         }
     }
 }

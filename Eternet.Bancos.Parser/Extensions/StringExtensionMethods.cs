@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Eternet.Bancos.Parser.Extensions
 {
@@ -10,10 +11,17 @@ namespace Eternet.Bancos.Parser.Extensions
             return parserdelimiter.GetBestCharDelimiter();
         }
 
-        public static DateTime ToProcinciaDateTime(this string str)
+        public static DateTime ToProvinciaDateTime(this string str)
         {
             var parse = new ParseDate(str);
             return parse.GetDateBancoProvincia();
+        }
+
+        public static DateTime ToCredicoopDateTime(this string str)
+        {
+            var separator = BestSeparator(str);
+            var format = "dd" + separator + "MM" + separator + "yyyy";
+            return DateTime.ParseExact(str, format, CultureInfo.CurrentCulture);
         }
     }
 }
