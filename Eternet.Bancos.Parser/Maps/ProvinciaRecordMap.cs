@@ -1,7 +1,6 @@
 ﻿using CsvHelper.Configuration;
 using Eternet.Bancos.Parser.Extensions;
 using Eternet.Bancos.Parser.Models;
-using System;
 
 namespace Eternet.Bancos.Parser.Maps
 {
@@ -24,18 +23,19 @@ namespace Eternet.Bancos.Parser.Maps
             Map(m => m.Concept).Index(ConceptIndex);
 
             Map(m => m.Amount).Index(AmountIndex)
-                .ConvertUsing(row => ToDecimal(row, AmountIndex));
+                .ConvertUsing(row =>
+                {
+                    var str = row.GetField<string>(AmountIndex);
+                    return str.ToDecimal();
+                });
 
             Map(m => m.Balance).Index(BalanceIndex)
-                .ConvertUsing(row => ToDecimal(row, BalanceIndex));
+                .ConvertUsing(row =>
+                {
+                    var str = row.GetField<string>(BalanceIndex);
+                    return str.ToDecimal();
+                });
         }
 
-        private static decimal ToDecimal(CsvHelper.IReaderRow row, int index)
-        {
-            var str = row.GetField<string>(index);
-            if (!decimal.TryParse(str, out var result))
-                throw new ArgumentException($"Can't convert {str} to a decimal");
-            return result;
-        }
     }
 }

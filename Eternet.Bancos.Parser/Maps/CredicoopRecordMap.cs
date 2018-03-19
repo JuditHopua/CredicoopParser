@@ -29,23 +29,28 @@ namespace Eternet.Bancos.Parser.Maps
             Map(m => m.VoucherNumber).Index(VoucherNumberIndex);
 
             Map(m => m.Debit).Index(DebitIndex)
-                .ConvertUsing(row => ToDecimal(row, DebitIndex));
+                .ConvertUsing(row =>
+                {
+                    var str = row.GetField<string>(DebitIndex);
+                    return str.ToDecimal();
+                }
+                );
 
             Map(m => m.Credit).Index(CreditIndex)
-                .ConvertUsing(row => ToDecimal(row, CreditIndex));
+                .ConvertUsing(row =>
+                {
+                    var str = row.GetField<string>(CreditIndex);
+                    return str.ToDecimal();
+                });
 
             Map(m => m.Balance).Index(BalanceIndex)
-                .ConvertUsing(row => ToDecimal(row, BalanceIndex));
+                .ConvertUsing(row => {
+                    var str = row.GetField<string>(BalanceIndex);
+                    return str.ToDecimal();
+                });
 
             Map(m => m.Code).Index(CodeIndex);
         }
 
-        private static decimal ToDecimal(CsvHelper.IReaderRow row, int index)
-        {
-            var str = row.GetField<string>(index);
-            if (!decimal.TryParse(str, out var result))
-                throw new ArgumentException($"Can't convert {str} to a decimal");
-            return result;
-        }
     }
 }
