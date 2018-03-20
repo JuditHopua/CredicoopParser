@@ -1,7 +1,6 @@
 ﻿using CsvHelper.Configuration;
 using Eternet.Bancos.Parser.Extensions;
 using Eternet.Bancos.Parser.Models;
-using System;
 
 namespace Eternet.Bancos.Parser.Maps
 {
@@ -22,7 +21,7 @@ namespace Eternet.Bancos.Parser.Maps
                     row =>
                     {
                         var str = row.GetField<string>(DateIndex);
-                        return str.ToCredicoopDateTime();
+                        return str.ToSlashDateTime();
                     });
             Map(m => m.Concept).Index(ConceptIndex);
 
@@ -44,7 +43,8 @@ namespace Eternet.Bancos.Parser.Maps
                 });
 
             Map(m => m.Balance).Index(BalanceIndex)
-                .ConvertUsing(row => {
+                .ConvertUsing(row =>
+                {
                     var str = row.GetField<string>(BalanceIndex);
                     return str.ToDecimal();
                 });

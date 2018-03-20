@@ -18,10 +18,10 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void CheckCustomDateParseCredicoop()
+        public void CheckCustomDateParseWithSlash()
         {
             const string str = "29/12/2017";
-            var mydate = str.ToCredicoopDateTime();
+            var mydate = str.ToSlashDateTime();
             var expected = new DateTime(2017, 12, 29);
             Assert.AreEqual(mydate, expected);
         }

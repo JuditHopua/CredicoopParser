@@ -17,7 +17,7 @@ namespace Eternet.Bancos.Parser.Extensions
             return parse.GetDateBancoProvincia();
         }
 
-        public static DateTime ToCredicoopDateTime(this string str)
+        public static DateTime ToSlashDateTime(this string str)
         {
             var separator = BestSeparator(str);
             var format = "dd" + separator + "MM" + separator + "yyyy";
