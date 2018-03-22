@@ -12,23 +12,14 @@ namespace IntegrationTest
         private const string CsvCredicoop =
             @"C:\Users\judit\source\repos\CredicoopParser2\IntegrationTest\assets\Credicoop.csv";
         private const string CsvFrances = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Frances.csv";
+        private const string CsvRio = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Rio.csv";
 
         [TestMethod]
         public void CheckHeaderCredicoop()
         {
-            const string file = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Credicoop.csv";
-            var parserdelimiter = new ParserDelimiter(File.ReadAllLines(file).FirstOrDefault());
+            var parserdelimiter = new ParserDelimiter(File.ReadAllLines(CsvCredicoop).FirstOrDefault());
             var chardelimiter = parserdelimiter.GetBestCharDelimiter();
             const char expected = ',';
-            Assert.AreEqual(chardelimiter, expected);
-        }
-
-        [TestMethod]
-        public void CheckHeaderProvincia()
-        {
-            var parserdelimiter = new ParserDelimiter(File.ReadAllLines(Csvpciafile).FirstOrDefault());
-            var chardelimiter = parserdelimiter.GetBestCharDelimiter();
-            const char expected = ';';
             Assert.AreEqual(chardelimiter, expected);
         }
 
@@ -55,8 +46,17 @@ namespace IntegrationTest
         {
             var transaction = new Transaction(CsvFrances);
             var francesRecords = transaction.ReadTransactionsFrances().ToArray();
-            var expectedLengthCsvFrances = File.ReadAllLines((CsvFrances)).Length - 7;
+            var expectedLengthCsvFrances = File.ReadAllLines(CsvFrances).Length - 7;
             Assert.AreEqual(francesRecords.Length, expectedLengthCsvFrances);
+        }
+
+        [TestMethod]
+        public void CheckCsvRio()
+        {
+            var transaction = new Transaction(CsvRio);
+            var rioRecords = transaction.ReadTransactionsRio().ToArray();
+            var expectedLengthCsvRio = File.ReadAllLines(CsvRio).Length - 17;
+            Assert.AreEqual(rioRecords.Length, expectedLengthCsvRio);
         }
     }
 }

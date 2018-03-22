@@ -9,5 +9,9 @@ namespace Eternet.Bancos.Parser
 
         IEnumerable<ProvinciaRecord> ReadTransactionsProvincia();
 
+        IEnumerable<FrancesRecord> ReadTransactionsFrances();
+
+        IEnumerable<RioRecord> ReadTransactionsRio();
+
     }
 }

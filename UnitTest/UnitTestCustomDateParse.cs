@@ -52,6 +52,15 @@ namespace UnitTest
             var expected = 0.00m;
             Assert.AreEqual(myDecimal, expected);
         }
+
+        [TestMethod]
+        public void CheckCustomParenthesisDecimalParse()
+        {
+            const string str = "(117,60)";
+            var myDecimal = str.ToDecimal();
+            var expected = -117.60m;
+            Assert.AreEqual(myDecimal, expected);
+        }
     }
 
 }

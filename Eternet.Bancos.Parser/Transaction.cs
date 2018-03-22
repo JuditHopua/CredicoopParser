@@ -11,8 +11,10 @@ namespace Eternet.Bancos.Parser
     {
         private readonly string _file;
 
-        private const string auxiliarFile =
-            @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\fileFromHeaders.csv";
+        private const string AuxiliarFileFrances =
+            @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\francesFileFromHeaders.csv";
+        private const string AuxiliarFileRio =
+            @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\rioFileFromHeaders.csv";
 
         public Transaction(string file)
         {
@@ -52,15 +54,36 @@ namespace Eternet.Bancos.Parser
             var separator = delimiter.GetBestCharDelimiter();
 
             List<string> linesFile = File.ReadAllLines(_file).ToList();
-            linesFile.RemoveRange(0, 6);
-            File.WriteAllLines(auxiliarFile, linesFile.ToArray());
 
-            var csv = new CsvReader(File.OpenText(auxiliarFile));
+            linesFile.RemoveRange(0, 6);
+            File.WriteAllLines(AuxiliarFileFrances, linesFile.ToArray());
+
+            var csv = new CsvReader(File.OpenText(AuxiliarFileFrances));
             csv.Configuration.Delimiter = $"{separator}";
             csv.Configuration.HasHeaderRecord = true;
             csv.Configuration.HeaderValidated = null;
             csv.Configuration.RegisterClassMap<FrancesRecordMap>();
             var results = csv.GetRecords<FrancesRecord>().ToArray();
+            return results;
+        }
+
+        public IEnumerable<RioRecord> ReadTransactionsRio()
+        {
+            var delimiter = new ParserDelimiter(File.ReadAllLines(_file).FirstOrDefault());
+            var separator = delimiter.GetBestCharDelimiter();
+
+            List<string> linesFile = File.ReadAllLines(_file).ToList();
+            linesFile.RemoveRange(linesFile.Count - 2, 2);
+            linesFile.RemoveRange(9, 10);
+            linesFile.RemoveRange(0, 4);
+            File.WriteAllLines(AuxiliarFileRio, linesFile.ToArray());
+
+            var csv = new CsvReader(File.OpenText(AuxiliarFileRio));
+            csv.Configuration.Delimiter = $"{separator}";
+            csv.Configuration.HasHeaderRecord = true;
+            csv.Configuration.HeaderValidated = null;
+            csv.Configuration.RegisterClassMap<RioRecordMap>();
+            var results = csv.GetRecords<RioRecord>().ToArray();
             return results;
         }
     }
