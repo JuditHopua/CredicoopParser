@@ -13,6 +13,8 @@ namespace IntegrationTest
             @"C:\Users\judit\source\repos\CredicoopParser2\IntegrationTest\assets\Credicoop.csv";
         private const string CsvFrances = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Frances.csv";
         private const string CsvRio = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Rio.csv";
+        private const string CsvIcbc = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\ICBC.csv";
+        private const string CsvNacion = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Nacion.csv";
 
         [TestMethod]
         public void CheckHeaderCredicoop()
@@ -57,6 +59,24 @@ namespace IntegrationTest
             var rioRecords = transaction.ReadTransactionsRio().ToArray();
             var expectedLengthCsvRio = File.ReadAllLines(CsvRio).Length - 17;
             Assert.AreEqual(rioRecords.Length, expectedLengthCsvRio);
+        }
+
+        [TestMethod]
+        public void CheckCsvIcbc()
+        {
+            var transaction = new Transaction(CsvIcbc);
+            var icbcRecords = transaction.ReadTransactionsIcbc().ToArray();
+            var expectedLenghtIcbc = File.ReadAllLines(CsvIcbc).Length - 2;
+            Assert.AreEqual(icbcRecords.Length, expectedLenghtIcbc);
+        }
+
+        [TestMethod]
+        public void CheckCsvNacion()
+        {
+            var transaction = new Transaction(CsvNacion);
+            var nacionRecords = transaction.ReadTransactionsNacion().ToArray();
+            var expectedLenghtNacion = File.ReadAllLines(CsvNacion).Length - 8;
+            Assert.AreEqual(nacionRecords.Length, expectedLenghtNacion);
         }
     }
 }

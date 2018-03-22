@@ -40,7 +40,7 @@ namespace UnitTest
         {
             const string str = "3125,18";
             var myDecimal = str.ToDecimal();
-            var expected = 3125.18m;
+            const decimal expected = 3125.18m;
             Assert.AreEqual(myDecimal, expected);
         }
 
@@ -49,7 +49,7 @@ namespace UnitTest
         {
             const string str = "";
             var myDecimal = str.ToDecimal();
-            var expected = 0.00m;
+            const decimal expected = 0.00m;
             Assert.AreEqual(myDecimal, expected);
         }
 
@@ -58,7 +58,16 @@ namespace UnitTest
         {
             const string str = "(117,60)";
             var myDecimal = str.ToDecimal();
-            var expected = -117.60m;
+            const decimal expected = -117.60m;
+            Assert.AreEqual(myDecimal, expected);
+        }
+
+        [TestMethod]
+        public void CheckCustomPlusAc0DecimalParse()
+        {
+            const string str = "+AC0-503,49";
+            var myDecimal = str.ToDecimal();
+            const decimal expected = -503.49m;
             Assert.AreEqual(myDecimal, expected);
         }
     }

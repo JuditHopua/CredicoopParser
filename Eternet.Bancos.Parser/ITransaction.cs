@@ -13,5 +13,7 @@ namespace Eternet.Bancos.Parser
 
         IEnumerable<RioRecord> ReadTransactionsRio();
 
+        IEnumerable<IcbcRecord> ReadTransactionsIcbc();
+
     }
 }

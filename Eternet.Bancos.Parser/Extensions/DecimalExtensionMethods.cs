@@ -7,6 +7,7 @@ namespace Eternet.Bancos.Parser.Extensions
         public static decimal ToDecimal(this string str)
         {
             str = str.Replace("(", "-").Replace(")", "").Trim();
+            str = str.Replace("+AC0", "").Trim();
             if (!decimal.TryParse(str, out var result))
             {
                 if (str == "")

@@ -15,6 +15,10 @@ namespace Eternet.Bancos.Parser
             @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\francesFileFromHeaders.csv";
         private const string AuxiliarFileRio =
             @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\rioFileFromHeaders.csv";
+        private const string AuxiliarFileIcbc =
+            @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\icbcFileFromHeaders.csv";
+        private const string AuxiliarFileNacion =
+            @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\nacionFileFromHeaders.csv";
 
         public Transaction(string file)
         {
@@ -54,7 +58,6 @@ namespace Eternet.Bancos.Parser
             var separator = delimiter.GetBestCharDelimiter();
 
             List<string> linesFile = File.ReadAllLines(_file).ToList();
-
             linesFile.RemoveRange(0, 6);
             File.WriteAllLines(AuxiliarFileFrances, linesFile.ToArray());
 
@@ -85,6 +88,43 @@ namespace Eternet.Bancos.Parser
             csv.Configuration.RegisterClassMap<RioRecordMap>();
             var results = csv.GetRecords<RioRecord>().ToArray();
             return results;
+        }
+
+        public IEnumerable<IcbcRecord> ReadTransactionsIcbc()
+        {
+            var delimiter = new ParserDelimiter(File.ReadAllLines(_file).FirstOrDefault());
+            var separator = delimiter.GetBestCharDelimiter();
+
+            List<string> linesFile = File.ReadAllLines(_file).ToList();
+            linesFile.RemoveRange(0, 1);
+            File.WriteAllLines(AuxiliarFileIcbc, linesFile.ToArray());
+
+            var csv = new CsvReader(File.OpenText(AuxiliarFileIcbc));
+            csv.Configuration.Delimiter = $"{separator}";
+            csv.Configuration.HasHeaderRecord = true;
+            csv.Configuration.HeaderValidated = null;
+            csv.Configuration.RegisterClassMap<IcbcRecordMap>();
+            var results = csv.GetRecords<IcbcRecord>().ToArray();
+            return results;
+        }
+
+        public IEnumerable<NacionRecord> ReadTransactionsNacion()
+        {
+            var delimiter = new ParserDelimiter(File.ReadAllLines(_file).FirstOrDefault());
+            var separator = delimiter.GetBestCharDelimiter();
+
+            List<string> linesFile = File.ReadAllLines(_file).ToList();
+            linesFile.RemoveRange(0, 7);
+            File.WriteAllLines(AuxiliarFileNacion, linesFile.ToArray());
+
+            var csv = new CsvReader(File.OpenText(AuxiliarFileNacion));
+            csv.Configuration.Delimiter = $"{separator}";
+            csv.Configuration.HasHeaderRecord = true;
+            csv.Configuration.HeaderValidated = null;
+            csv.Configuration.RegisterClassMap<NacionRecordMap>();
+            var results = csv.GetRecords<NacionRecord>().ToArray();
+            return results;
+
         }
     }
 }

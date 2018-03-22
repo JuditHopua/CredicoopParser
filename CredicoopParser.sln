@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CredicoopParser", "Credicoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{6F638F21-81B9-4E43-871C-DB6E28CE429B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eternet.Bancos.Parser", "Eternet.Bancos.Parser\Eternet.Bancos.Parser.csproj", "{A20AFBAE-E38D-477E-A3F1-724B2B0D8A4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eternet.Bancos.Parser", "Eternet.Bancos.Parser\Eternet.Bancos.Parser.csproj", "{A20AFBAE-E38D-477E-A3F1-724B2B0D8A4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest", "IntegrationTest\IntegrationTest.csproj", "{5909ACBB-7642-47B7-A7C5-10EFC71EC286}"
 EndProject
