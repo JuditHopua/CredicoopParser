@@ -6,7 +6,7 @@ using Eternet.Bancos.Parser;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestParserDelimiter
     {
 
         [TestMethod]

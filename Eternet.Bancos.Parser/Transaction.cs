@@ -12,13 +12,13 @@ namespace Eternet.Bancos.Parser
         private readonly string _file;
 
         private const string AuxiliarFileFrances =
-            @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\francesFileFromHeaders.csv";
+            @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\francesFileFromHeaders.csv";
         private const string AuxiliarFileRio =
-            @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\rioFileFromHeaders.csv";
+            @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\rioFileFromHeaders.csv";
         private const string AuxiliarFileIcbc =
-            @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\icbcFileFromHeaders.csv";
+            @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\icbcFileFromHeaders.csv";
         private const string AuxiliarFileNacion =
-            @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\nacionFileFromHeaders.csv";
+            @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\nacionFileFromHeaders.csv";
 
         public Transaction(string file)
         {

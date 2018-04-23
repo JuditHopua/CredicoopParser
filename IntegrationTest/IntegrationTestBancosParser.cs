@@ -6,15 +6,15 @@ using System.Linq;
 namespace IntegrationTest
 {
     [TestClass]
-    public class IntegrationTest1
+    public class IntegrationTestBancosParser
     {
-        private const string Csvpciafile = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Pcia.csv";
+        private const string Csvpciafile = @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\Pcia.csv";
         private const string CsvCredicoop =
-            @"C:\Users\judit\source\repos\CredicoopParser2\IntegrationTest\assets\Credicoop.csv";
-        private const string CsvFrances = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Frances.csv";
-        private const string CsvRio = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Rio.csv";
-        private const string CsvIcbc = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\ICBC.csv";
-        private const string CsvNacion = @"C:\Users\judit\source\repos\CredicoopParser\IntegrationTest\assets\Nacion.csv";
+            @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\Credicoop.csv";
+        private const string CsvFrances = @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\Frances.csv";
+        private const string CsvRio = @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\Rio.csv";
+        private const string CsvIcbc = @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\ICBC.csv";
+        private const string CsvNacion = @"C:\Users\judit\source\repos\BankParser\IntegrationTest\assets\Nacion.csv";
 
         [TestMethod]
         public void CheckHeaderCredicoop()

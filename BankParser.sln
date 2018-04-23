@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CredicoopParser", "CredicoopParser\CredicoopParser.csproj", "{AC641E36-0733-45DF-B787-B771C9E97EC6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{6F638F21-81B9-4E43-871C-DB6E28CE429B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eternet.Bancos.Parser", "Eternet.Bancos.Parser\Eternet.Bancos.Parser.csproj", "{A20AFBAE-E38D-477E-A3F1-724B2B0D8A4F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTest", "IntegrationTest\IntegrationTest.csproj", "{5909ACBB-7642-47B7-A7C5-10EFC71EC286}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eternet.Bancos.Interpreter", "Eternet.Bancos.Interpreter\Eternet.Bancos.Interpreter.csproj", "{7EDD772D-4929-477D-B48C-B1B018FF1950}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AC641E36-0733-45DF-B787-B771C9E97EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AC641E36-0733-45DF-B787-B771C9E97EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AC641E36-0733-45DF-B787-B771C9E97EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AC641E36-0733-45DF-B787-B771C9E97EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6F638F21-81B9-4E43-871C-DB6E28CE429B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6F638F21-81B9-4E43-871C-DB6E28CE429B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F638F21-81B9-4E43-871C-DB6E28CE429B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{5909ACBB-7642-47B7-A7C5-10EFC71EC286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5909ACBB-7642-47B7-A7C5-10EFC71EC286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5909ACBB-7642-47B7-A7C5-10EFC71EC286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EDD772D-4929-477D-B48C-B1B018FF1950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EDD772D-4929-477D-B48C-B1B018FF1950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EDD772D-4929-477D-B48C-B1B018FF1950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EDD772D-4929-477D-B48C-B1B018FF1950}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

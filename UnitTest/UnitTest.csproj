@@ -48,14 +48,19 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTestBancosInterpreter.cs" />
     <Compile Include="UnitTestCustomDateParse.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="UnitTestParserDelimiter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Eternet.Bancos.Interpreter\Eternet.Bancos.Interpreter.csproj">
+      <Project>{7EDD772D-4929-477D-B48C-B1B018FF1950}</Project>
+      <Name>Eternet.Bancos.Interpreter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Eternet.Bancos.Parser\Eternet.Bancos.Parser.csproj">
       <Project>{a20afbae-e38d-477e-a3f1-724b2b0d8a4f}</Project>
       <Name>Eternet.Bancos.Parser</Name>
